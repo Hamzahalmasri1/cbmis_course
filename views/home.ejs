@@ -1,0 +1,80 @@
+<link href="/static/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+<link href="/static/css/style.css" rel="stylesheet" >
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="/static/img/logo_white.png" alt=""/>
+            <h3>Welcome</h3>
+            <p>You are 30 seconds away from earning your own money!</p>
+           
+        </div>
+        <div class="col-md-9 register-right">
+        
+            <% if(typeof alert != 'undefined') { %>
+                <% alert.forEach(function(error) { %>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                       <%=error.param%>: <%= error.msg %>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                      </div>
+                <% }) %>
+            <% } %>
+                
+                
+                    <h3  class="register-heading">Apply as a Employer</h3>
+                <form action = "/" method="POST">
+                    <div class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="username" placeholder="You Name *" value=""  required/>
+                            </div>
+                        
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" placeholder="Email *" value="" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" name="phone" value=""required />
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="password" class="form-control" id = "password" name ="password" placeholder="Password *" value="" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control"  id = "confirm_password" name ="password" id="confirm_password" placeholder="Confirm Password *" value="" required />
+                            </div>
+                            <span id ="message">
+                                </span>
+                            <div class="form-group">
+                                <div class="maxl">
+                                    <label class="radio inline"> 
+                                        <input type="radio" name="gender" value="male" checked>
+                                        <span> Male </span> 
+                                    </label>
+                                    <label class="radio inline"> 
+                                        <input type="radio" name="gender" value="female">
+                                        <span>Female </span> 
+                                    </label>
+                                </div>
+                            </div>
+                         
+                            <input type="submit" class="btnRegister"  id="regbtn" value="Register"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/static/js/confirm_pass.js"></script>
+

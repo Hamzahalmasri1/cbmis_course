@@ -1,0 +1,56 @@
+<link href="/static/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+<link href="/static/css/style.css" rel="stylesheet" >
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="/static/img/logo_white.png" alt=""/>
+            <h3>Welcome</h3>
+            <p>You are 30 seconds away from earning your own money!</p>
+           
+        </div>
+        <div class="col-md-9 register-right">
+        
+      
+                
+                    <h3  class="register-heading">Thank you for applying</h3>
+         
+                    <div class="row register-form">
+                        <div class="col-md-12">
+
+                            <h5>Thank you for your request. The serverApp received the following information and soon will be able to save this data into the the database.</h5>
+                            
+                            <ol>
+                               
+                                   <li>
+                                    username:   <%= context.username %>
+                                   </li>
+                                   <li>
+                                    email :  <%= context.email %>
+                                  </li>
+                                  <li>
+                                    password:   <%= context.password %>
+                                  </li>
+                                  <li>
+                                    gender:  <%= context.gender %>
+                                  </li>
+                                  <li>
+                                    phone:   <%= context.phone %>
+                                  </li>
+                             
+                                </ol>
+                            
+                        </div>
+                    </div>
+     
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
