@@ -1,9 +1,6 @@
 const express = require('express')
 const app = express()
 
-const db = require('./database')
-
-db.connect()
 
 var bodyParser = require('body-parser')
 
@@ -15,6 +12,9 @@ app.use(express.static('public'))
 app.set('view engine','ejs')
 const port = 4000
 
+const db = require('./database')
+
+db.connect()
 
 
 
