@@ -1,12 +1,11 @@
-const express = require('express') 
+const express = require('express'); 
+const db = require('../database/models');
 const router = express.Router();
 
-const users = [{"username": "nameValue", "gender": 'female','email':'eeee@getMaxListeners.com','phone':'078333224'},{"username": "nameValue2", "gender": 'male','email':'eeee@example.com','phone':'0783222224'}]
 
-router.get('/users',(req,res) =>{
+router.get('/all',(req,res) =>{
 res.set('Access-Control-Allow-Origin', '*');
- res.json(users)
-
+ db.User.findAll().then(users => res.send(users))
 })
 
 module.exports = router

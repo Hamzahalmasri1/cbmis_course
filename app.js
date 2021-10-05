@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+const schemas = require('./routes/schema')
+var { graphqlHTTP } = require('express-graphql');
 
 
 var bodyParser = require('body-parser')
@@ -12,9 +14,9 @@ app.use(express.static('public'))
 app.set('view engine','ejs')
 const port = 4000
 
-const db = require('./database')
+const db = require('./database/models')
 
-db.connect()
+// db.connect()
 
 
 
@@ -42,7 +44,18 @@ body('password').isLength({ min: 5 }).withMessage('must be at least 5 chars long
 
 const apiUser = require('./routes/api')
 app.use('/api',apiUser)
-app.listen(port, () => {
-  console.log(`app listening at http://localhost:${port}`)
-})
+
+
+app.use('/graphql', graphqlHTTP({
+  schema: schemas,
+  pretty:true,
+  graphiql: true,
+}));
+
+db.sequelize.sync().then(function() {
+  app.listen(port, () => {
+    console.log(`app listening at http://localhost:${port}`)
+  })
+});
+
 
